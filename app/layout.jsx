@@ -5,8 +5,6 @@ import { Categories } from './categories'
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
 }) {
   
   return (
