@@ -7,7 +7,7 @@ async function getData() {
 
 export async function Categories() {
     const data = await getData();
-    console.log(data)
+
     return  <ul className='p-2 m-2 border'>
       {data.map((category) => (
                     <li key={category}>

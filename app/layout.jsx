@@ -1,6 +1,6 @@
 import './globals.css'
-import Header from '../components/header'
-import { Categories } from './categories'
+import Header from '../components/server/header'
+import { Categories } from '../components/server/categories'
 
 
 export default function RootLayout({

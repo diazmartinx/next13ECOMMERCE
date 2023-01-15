@@ -20,6 +20,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/categories.jsx", "app/categories.jsx", "app/page.jsx", "app/page.jsx", "app/layout.jsx", "app/layout.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/server/categories.jsxcatecomponents/server/categories.jsxonents/server/categories.jsx", "app/page.tsx", "app/page.tsx", "app/layout.jsx", "app/layout.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ProductList from '../../../components/server/products';
 
 async function getData( category ) {
     return fetch('https://dummyjson.com/products/category/'+ category)
@@ -14,13 +15,7 @@ export default async function Page( { params } ) {
                  / <span className='text-gray-500 underline'>{params.category}</span>
             </span>
 
-            <ul>
-                {data.products.map((product) => (
-                    <li key={product.id}>
-                        <Link href={`/products/${product.category}/${product.id}`}>{product.title}</Link>
-                    </li>
-                ))}
-            </ul>
+            <ProductList data={data.products} />
         </div>
     )
 }
