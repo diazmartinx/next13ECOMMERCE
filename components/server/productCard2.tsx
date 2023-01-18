@@ -1,7 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image';
 
-export default function ProductCard2( {product} ){
+type ProductCard2Props = {
+    product: {
+        id: string,
+        title: string,
+        price: number,
+        stock: number,
+        images: [string],
+        category: string
+    }
+}
+
+export default function ProductCard2( {product} : ProductCard2Props ){
     return <div className="card card-side bg-base-300 shadow-xs rounded-sm">
     <figure><Image className='object-contain' src={product.images[0]} width={200} height={200} alt={product.title} /></figure>
     <div className="card-body">

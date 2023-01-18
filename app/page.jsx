@@ -7,28 +7,9 @@ async function getProducts() {
   .then((res) => res.json())
 }
 
-export default async function Home( {searchParams} ) {
-  console.log(searchParams);
+export default async function Home() {
   const data = await getProducts();
   let products = data.products
-
-  if (searchParams.order) {
-    products.sort((a, b) => {
-      if (searchParams.order === 'asc') {
-        return a.price - b.price
-      } else {
-        return b.price - a.price
-      }
-    })
-  }
-
-  if (searchParams.minPrice) {
-    products = products.filter((product) => product.price >= searchParams.minPrice)
-  }
-
-  if (searchParams.maxPrice) {
-    products = products.filter((product) => product.price <= searchParams.maxPrice)
-  }
 
   const breadcrumb = [
     {icon:'Home',name:'Home',link:'/', active: true},
