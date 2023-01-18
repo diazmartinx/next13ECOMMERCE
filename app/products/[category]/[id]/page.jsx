@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image';
+import Breadcrumb from '../../../../components/client/breadcrumb';
 
 async function getData(id) {
     return fetch('https://dummyjson.com/products/'+id)
@@ -8,13 +9,14 @@ async function getData(id) {
 
 export default async function Page( { params } ) {
     const data = await getData(params.id);
+    const breadcrumb = [
+        {icon:'Home', name:'Home',link:'/'},
+        {icon:'Category', name:params.category,link:'/products/'+params.category},
+        {icon:'Badge', name:data.title,link:'/', active:true}
+    ]
     return (
-        <section>
-        <h2 className='m-2'>
-            <Link href={'/'}>🏠Home </Link>/ 
-            <Link href={`/products/${params.category}`}> {params.category} </Link>
-            / <span className='text-gray-500 underline'>{data.title}</span>
-        </h2>
+        <section className='m-2'>
+        <Breadcrumb data={breadcrumb} />
         <section className="flex justify-center items-center">
             <div className="border p-2">
                 <div className=''><Image src={data.images[0]} width={300} height={300} alt={data.title} /></div>

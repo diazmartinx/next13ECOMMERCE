@@ -1,8 +1,6 @@
-import { Inter } from '@next/font/google'
 import ProductsList from '../components/server/products'
-import Filters from '../components/client/filters'
+import BreadCrumb from '../components/client/breadcrumb'
 
-const inter = Inter({ subsets: ['latin'] })
 
 async function getProducts() {
   return fetch('https://dummyjson.com/products')
@@ -32,12 +30,13 @@ export default async function Home( {searchParams} ) {
     products = products.filter((product) => product.price <= searchParams.maxPrice)
   }
 
+  const breadcrumb = [
+    {icon:'Home',name:'Home',link:'/', active: true},
+  ]
+
   return (
     <section className='m-2'>
-      <span>
-      🏠<span className='underline text-gray-500'>Home</span>
-      </span>
-      
+      <BreadCrumb data={breadcrumb}/>   
       <ProductsList data={products}/>
     </section>
   )
