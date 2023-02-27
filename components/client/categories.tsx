@@ -7,7 +7,6 @@ export default function Categories({ data }: { data: [string] }) {
   return (
     <ul className="menu bg-base-200 w-full">
       <iframe
-        style="border-radius:12px"
         src="https://open.spotify.com/embed/track/50kpGaPAhYJ3sGmk6vplg0?utm_source=generator"
         width="100%"
         height="352"
